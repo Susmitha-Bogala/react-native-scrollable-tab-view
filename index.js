@@ -31,6 +31,7 @@ class ScrollableTabView extends Component {
       containerWidth: width,
       sceneKeys: this.newSceneKeys({ currentPage: this.props.initialPage, }),
     };
+    this._boundOnMomentumScrollBeginAndEnd = this._onMomentumScrollBeginAndEnd.bind(this);
   }
 
   componentDidMount() {
@@ -128,8 +129,8 @@ class ScrollableTabView extends Component {
           useNativeDriver: true,
         })
       }
-      onMomentumScrollBegin={this._onMomentumScrollBeginAndEnd}
-      onMomentumScrollEnd={this._onMomentumScrollBeginAndEnd}
+      onMomentumScrollBegin={this._boundOnMomentumScrollBeginAndEnd}
+      onMomentumScrollEnd={this._boundOnMomentumScrollBeginAndEnd}
       scrollEventThrottle={16}
       scrollsToTop={false}
       showsHorizontalScrollIndicator={false}
